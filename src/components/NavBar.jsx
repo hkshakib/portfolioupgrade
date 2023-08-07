@@ -1,13 +1,37 @@
-import { Button, HStack, List, ListItem, Text } from "@chakra-ui/react";
+import { Button, HStack, List, ListItem } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
   return (
-    <HStack justifyContent="space-between" padding="10px">
-      <Text fontWeight="bold" marginLeft={5}>
+    <HStack justifyContent="space-between" padding="10px" dropShadow={1}>
+      <Button
+        fontWeight="bold"
+        marginLeft={{
+          base: 0,
+          lg: 5,
+        }}
+        paddingLeft={{
+          base: "1px",
+          lg: "10px",
+        }}
+        variant="outlined"
+      >
         HKSHAKIB
-      </Text>
-      <List>
-        <HStack justifyContent="space-between" spacing={10}>
+      </Button>
+      <List
+        display={{
+          base: "none",
+          lg: "block",
+        }}
+      >
+        <HStack
+          justifyContent="space-between"
+          spacing={5}
+          fontSize={{
+            base: "12px",
+            lg: "14px",
+          }}
+        >
           <ListItem cursor="pointer">Skills</ListItem>
           <ListItem cursor="pointer">Problem Solving</ListItem>
           <ListItem cursor="pointer">Experience</ListItem>
@@ -17,7 +41,30 @@ const NavBar = () => {
           <ListItem cursor="pointer">Achivement</ListItem>
         </HStack>
       </List>
-      <Button marginRight={5}>Download Resume</Button>
+      <Button
+        colorScheme="teal"
+        color="black"
+        variant="outline"
+        marginRight={2}
+        display={{
+          base: "none",
+          lg: "block",
+        }}
+        fontSize={{
+          base: "14px",
+          md: "12px",
+        }}
+      >
+        Download Resume
+      </Button>
+      <Button
+        display={{
+          base: "block",
+          lg: "none",
+        }}
+      >
+        <HamburgerIcon />
+      </Button>
     </HStack>
   );
 };

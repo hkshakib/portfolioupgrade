@@ -1,6 +1,6 @@
 import { Button, HStack, List, ListItem, useColorMode } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
 import ColorModeSwitch from "./ColorModeSwitch";
+import ResponsiveMobileMenue from "./ResponsivMobileMenu";
 
 const NavBar = () => {
   const { colorMode } = useColorMode();
@@ -52,7 +52,7 @@ const NavBar = () => {
               <ListItem
                 key={Menu.id}
                 cursor="pointer"
-                _hover={{ color: colorMode ? "#4477CE" : "#6528F7" }}
+                _hover={{ color: isDarkMode ? "#4477CE" : "#6528F7" }}
               >
                 {Menu.Name}
               </ListItem>
@@ -76,7 +76,7 @@ const NavBar = () => {
 
         <ColorModeSwitch />
 
-        <HamburgerIcon
+        <ResponsiveMobileMenue
           display={{
             base: "block",
             lg: "none",

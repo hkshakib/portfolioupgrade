@@ -5,8 +5,18 @@ import ColorModeSwitch from "./ColorModeSwitch";
 const NavBar = () => {
   const { colorMode } = useColorMode();
   const isDarkMode = colorMode === "dark";
+
+  const MenuList = [
+    { id: 1, Name: "Skills" },
+    { id: 2, Name: "Problem Solving" },
+    { id: 3, Name: "Experience" },
+    { id: 4, Name: "Projects" },
+    { id: 5, Name: "Research" },
+    { id: 6, Name: "Education" },
+    { id: 7, Name: "Achivement" },
+  ];
   return (
-    <HStack justifyContent="space-between" padding="10px" dropShadow={1}>
+    <HStack justifyContent="space-between" padding="10px">
       <Button
         fontWeight="bold"
         marginLeft={{
@@ -29,44 +39,45 @@ const NavBar = () => {
       >
         <HStack
           justifyContent="space-between"
-          spacing={5}
+          spacing={10}
           fontSize={{
-            base: "12px",
+            base: "11px",
+            md: "11px",
             lg: "14px",
           }}
           whiteSpace="wrap"
         >
-          <ListItem cursor="pointer">Skills</ListItem>
-          <ListItem cursor="pointer">Problem Solving</ListItem>
-          <ListItem cursor="pointer">Experience</ListItem>
-          <ListItem cursor="pointer">Projects</ListItem>
-          <ListItem cursor="pointer">Research</ListItem>
-          <ListItem cursor="pointer">Education</ListItem>
-          <ListItem cursor="pointer">Achivement</ListItem>
+          {MenuList &&
+            MenuList.map((Menu) => (
+              <ListItem key={Menu.id} cursor="pointer">
+                {Menu.Name}
+              </ListItem>
+            ))}
         </HStack>
       </List>
-      <Button
-        colorScheme={isDarkMode ? "white" : "black"}
-        color={isDarkMode ? "white" : "black"}
-        variant="outline"
-        fontSize={{ base: "14px", md: "12px" }}
-        display={{
-          base: "none",
-          lg: "block",
-        }}
-      >
-        Download Resume
-      </Button>
+      <HStack spacing={20}>
+        <Button
+          colorScheme="gray"
+          color={isDarkMode ? "white" : "black"}
+          variant="outline"
+          fontSize={{ base: "14px", md: "12px" }}
+          display={{
+            base: "none",
+            lg: "block",
+          }}
+        >
+          Download Resume
+        </Button>
 
-      <ColorModeSwitch />
-      <Button
-        display={{
-          base: "block",
-          lg: "none",
-        }}
-      >
-        <HamburgerIcon />
-      </Button>
+        <ColorModeSwitch />
+
+        <HamburgerIcon
+          display={{
+            base: "block",
+            lg: "none",
+          }}
+        />
+      </HStack>
     </HStack>
   );
 };

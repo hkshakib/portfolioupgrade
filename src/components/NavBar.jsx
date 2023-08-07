@@ -49,7 +49,11 @@ const NavBar = () => {
         >
           {MenuList &&
             MenuList.map((Menu) => (
-              <ListItem key={Menu.id} cursor="pointer">
+              <ListItem
+                key={Menu.id}
+                cursor="pointer"
+                _hover={{ color: colorMode ? "#4477CE" : "#6528F7" }}
+              >
                 {Menu.Name}
               </ListItem>
             ))}
@@ -65,6 +69,7 @@ const NavBar = () => {
             base: "none",
             lg: "block",
           }}
+          _hover={{ color: colorMode ? "#4477CE" : "#6528F7" }}
         >
           Download Resume
         </Button>

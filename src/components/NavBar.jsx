@@ -1,7 +1,10 @@
-import { Button, HStack, List, ListItem } from "@chakra-ui/react";
+import { Button, HStack, List, ListItem, useColorMode } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
+  const { colorMode } = useColorMode();
+  const isDarkMode = colorMode === "dark";
   return (
     <HStack justifyContent="space-between" padding="10px" dropShadow={1}>
       <Button
@@ -31,6 +34,7 @@ const NavBar = () => {
             base: "12px",
             lg: "14px",
           }}
+          whiteSpace="wrap"
         >
           <ListItem cursor="pointer">Skills</ListItem>
           <ListItem cursor="pointer">Problem Solving</ListItem>
@@ -42,21 +46,19 @@ const NavBar = () => {
         </HStack>
       </List>
       <Button
-        colorScheme="teal"
-        color="black"
+        colorScheme={isDarkMode ? "white" : "black"}
+        color={isDarkMode ? "white" : "black"}
         variant="outline"
-        marginRight={2}
+        fontSize={{ base: "14px", md: "12px" }}
         display={{
           base: "none",
           lg: "block",
         }}
-        fontSize={{
-          base: "14px",
-          md: "12px",
-        }}
       >
         Download Resume
       </Button>
+
+      <ColorModeSwitch />
       <Button
         display={{
           base: "block",

@@ -1,6 +1,14 @@
-import { Button, HStack, List, ListItem, useColorMode } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  List,
+  ListItem,
+  useColorMode,
+  Text,
+} from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import ResponsiveMobileMenue from "./ResponsivMobileMenu";
+import { DownloadIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
   const { colorMode } = useColorMode();
@@ -71,7 +79,10 @@ const NavBar = () => {
           }}
           _hover={{ color: colorMode ? "#4477CE" : "#6528F7" }}
         >
-          Download Resume
+          <HStack spacing={2}>
+            <DownloadIcon />
+            <Text>Download Resume</Text>
+          </HStack>
         </Button>
 
         <ColorModeSwitch />
